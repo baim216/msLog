@@ -1,5 +1,7 @@
-# msLog
+# Abstract
 log for webView &amp; appWeb
+
+A tool imitate the browser console on webView or webApp;
 
 
 # example
@@ -28,3 +30,6 @@ msLog.error(11111, "I am the log", {name: "msLog"}, [1,2,3]);
 | ------------- | -------------  | ------------- | ----------- |
 | log           | function       | ""            | default log function |
 | error         | function       | ""            | the color of text is red |
+
+# License
+[MIT](https://opensource.org/licenses/MIT)
