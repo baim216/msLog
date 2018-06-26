@@ -5,7 +5,7 @@ log for webView &amp; appWeb
 # example
 [example](https://martin-bai.github.io/msLog/example/index.html)
 
-![QR Code](/QRCode.jpg)
+![QR Code](/example/QRCode.jpg)
 
 # use
 ```
