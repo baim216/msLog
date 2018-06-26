@@ -15,7 +15,14 @@ msLog.log(11111);
 msLog.log([1,2,3]);
 // [1,2,3]
 
-msLog.log(11111, "I am the log", {name: "msLog"}, [1,2,3]); 
+msLog.error(11111, "I am the log", {name: "msLog"}, [1,2,3]); 
 //11111 I am the log {"name":"msLog"} [1,2,3]
 
 ```
+
+# API
+
+| name          | type           | defaultParams | description |
+| ------------- | -------------  | ------------- | ----------- |
+| log           | function       | ""            | default log function |
+| error         | function       | ""            | the color of text is red |
