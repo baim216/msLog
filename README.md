@@ -40,7 +40,7 @@ msLog.error(11111, "I am the log", {name: "msLog"}, [1,2,3]);
 | error         | function       | ""            | the color of text is red |
 
 # change log
-[changeLog](https://martin-bai.github.io/msLog/changeLog.md)
+[changeLog](https://martin-bai.github.io/msLog/changeLog.html)
 
 
 # License
