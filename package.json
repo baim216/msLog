@@ -1,0 +1,27 @@
+{
+  "name": "ms-log",
+  "version": "0.0.1",
+  "description": "log for webView &amp; appWeb. A tool imitate the browser console on webView or webApp.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martin-Bai/msLog.git"
+  },
+  "keywords": [
+    "log",
+    "webView",
+    "webApp"
+  ],
+  "author": "martin-bai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Martin-Bai/msLog/issues"
+  },
+  "homepage": "https://github.com/Martin-Bai/msLog#readme"
+}
