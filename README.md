@@ -39,5 +39,9 @@ msLog.error(11111, "I am the log", {name: "msLog"}, [1,2,3]);
 | log           | function       | ""            | default log function |
 | error         | function       | ""            | the color of text is red |
 
+# change log
+[changeLog](https://martin-bai.github.io/msLog/changeLog.md)
+
+
 # License
 [MIT](https://opensource.org/licenses/MIT)
