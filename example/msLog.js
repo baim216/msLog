@@ -26,7 +26,6 @@ MagicSquareLog.prototype = {
 
 		this.setEle();
 		this.addEvent();
-		this.stopBrowserDrag();
 
 	},
 	//设置element引用
