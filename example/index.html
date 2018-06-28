@@ -7,7 +7,18 @@
     <link href="msLog.css" rel="stylesheet" type="text/css"/>
     <style>
         *{
+            padding: 0;
+            margin: 0;
             box-sizing: border-box;
+        }
+        body:before {
+            width: 100%;
+            height: 100%;
+            content: ' ';
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            left: 0;
         }
         pre{
             padding: 16px;
@@ -42,7 +53,7 @@
             color: #fff;
         }
     </style>
-    <script src="msLog.js"></script>
+    <script src="msLog.js?v=1"></script>
 </head>
 <body>
 
@@ -77,6 +88,7 @@
 
     var runBtnEle = document.getElementById("runBtn");
     runBtnEle.onclick = runJavascript;
+
 
 </script>
 

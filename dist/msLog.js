@@ -26,6 +26,7 @@ MagicSquareLog.prototype = {
 
 		this.setEle();
 		this.addEvent();
+		this.stopBrowserDrag();
 
 	},
 	//设置element引用
@@ -106,20 +107,52 @@ MagicSquareLog.prototype = {
 		var bodyHeight = 0;
 		var t = this;
 		this.moveBtn.ontouchstart = function (e) {
+			e.preventDefault();
 			var touch = e.changedTouches[0];
 			x = touch.clientX;
 			y = touch.clientY;
 			bodyHeight = parseInt(getComputedStyle(t.bodyEle, null)['height']);
+
+			document.ontouchmove = function (e) {
+				var touch = e.changedTouches[0];
+				moveX = touch.clientX;
+				moveY = touch.clientY;
+
+				offsetX = moveX - x;
+				offsetY = moveY- y;
+
+				t.bodyEle.style.height = bodyHeight - offsetY + "px";
+			};
 		};
-		this.moveBtn.ontouchmove = function (e) {
-			var touch = e.changedTouches[0];
-			moveX = touch.clientX;
-			moveY = touch.clientY;
 
-			offsetX = moveX - x;
-			offsetY = moveY- y;
-
-			t.bodyEle.style.height = bodyHeight - offsetY + "px";
+		this.moveBtn.ontouchend = function (e) {
+			document.ontouchmove = null;
 		}
+	},
+	//禁用浏览器回弹功能
+	stopBrowserDrag:function () {
+		var overScroll = function(el) {
+			el.addEventListener('touchstart', function() {
+				var top = el.scrollTop,
+					totalScroll = el.scrollHeight,
+					currentScroll = top + el.offsetHeight;
+				if(top === 0) {
+					el.scrollTop = 1;
+				}else if(currentScroll === totalScroll) {
+					el.scrollTop = top - 1;
+				}
+			});
+			el.ontouchmove = function(evt) {
+				if(el.offsetHeight < el.scrollHeight)
+					evt._isScroller = true;
+			};
+		};
+
+		overScroll(document.querySelector('.ms-log-wrap'));
+		document.querySelector('.ms-log-wrap').ontouchmove = function(evt) {
+			if(!evt._isScroller) {
+				evt.preventDefault();
+			}
+		};
 	}
 };
