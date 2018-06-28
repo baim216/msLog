@@ -105,12 +105,14 @@ MagicSquareLog.prototype = {
 		var bodyHeight = 0;
 		var t = this;
 		this.moveBtn.ontouchstart = function (e) {
+			e.stopPropagation();
 			var touch = e.changedTouches[0];
 			x = touch.clientX;
 			y = touch.clientY;
 			bodyHeight = parseInt(getComputedStyle(t.bodyEle, null)['height']);
 		};
 		this.moveBtn.ontouchmove = function (e) {
+			e.stopPropagation();
 			var touch = e.changedTouches[0];
 			moveX = touch.clientX;
 			moveY = touch.clientY;
