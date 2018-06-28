@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <title>Title</title>
+    <title>msLog demo</title>
     <link href="msLog.css" rel="stylesheet" type="text/css"/>
     <style>
+        *{
+            box-sizing: border-box;
+        }
         pre{
             padding: 16px;
             overflow: auto;
@@ -13,6 +16,30 @@
             line-height: 1.45;
             background-color: #f6f8fa;
             border-radius: 3px;
+        }
+        textarea{
+            width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            border-radius: 3px;
+            height: 100px;
+            resize: none;
+            padding: 10px;
+            line-height: 25px;
+            font-size: 14px;
+        }
+        button{
+            background-color: transparent;
+            border: 1px solid #ccc;
+            width: 100px;
+            height: 35px;
+            outline: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        button:hover{
+            background-color: #1f54eb;
+            color: #fff;
         }
     </style>
     <script src="msLog.js"></script>
@@ -28,6 +55,10 @@
         msLog.log(11111, "I am the log", obj, [1,2,3]);
         msLog.error("log:" + JSON.stringify(obj));
     </pre>
+
+    <textarea id="jsText"></textarea>
+    <br/>
+    <button id="runBtn">Run</button>
 </div>
 
 <script>
@@ -38,6 +69,14 @@
 
     msLog.log(11111, "I am the log", obj, [1,2,3]);
     msLog.error("log:" + JSON.stringify(obj));
+
+    function runJavascript() {
+        var jsTextEle = document.getElementById("jsText");
+        eval(jsTextEle.value);
+    }
+
+    var runBtnEle = document.getElementById("runBtn");
+    runBtnEle.onclick = runJavascript;
 
 </script>
 
