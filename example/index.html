@@ -10,6 +10,7 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
         }
         body:before {
             width: 100%;
@@ -52,6 +53,7 @@
             background-color: #1f54eb;
             color: #fff;
         }
+
     </style>
     <script src="msLog.js?v=1"></script>
 </head>
@@ -67,7 +69,7 @@
     msLog.error("log:" + JSON.stringify(obj));
     </pre>
 
-    <textarea id="jsText">msLog.log("I am default");msLog.log("I am error");</textarea>
+    <textarea id="jsText">msLog.log("I am default");msLog.error("I am error");</textarea>
     <br/>
     <button id="runBtn">Run</button>
 </div>
