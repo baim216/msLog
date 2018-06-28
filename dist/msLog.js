@@ -26,7 +26,7 @@ MagicSquareLog.prototype = {
 
 		this.setEle();
 		this.addEvent();
-		this.move();
+
 	},
 	//设置element引用
 	setEle:function () {
@@ -49,6 +49,7 @@ MagicSquareLog.prototype = {
 		this.clearBtn.onclick = function () {
 			t.clear();
 		};
+		this.move();
 	},
 	//将log转换为文本
 	getText: function () {
