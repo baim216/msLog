@@ -59,7 +59,7 @@ MagicSquareLog.prototype = {
 		var text = "";
 		for (var i = 0; i < len; i++) {
 			var argItem = arg[i];
-			switch (argItem){
+			switch (typeof argItem){
 				case "object":
 					text += JSON.stringify(argItem) + " ";
 					break;
