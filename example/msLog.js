@@ -156,7 +156,7 @@ MagicSquareLog.prototype = {
 
 		overScroll(document.querySelector('.ms-log-wrap'));*/
 		document.querySelector('html').ontouchmove = function(evt) {
-			evt.preventDefault();
+			// evt.preventDefault();
 		};
 	}
 };
