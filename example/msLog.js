@@ -137,7 +137,7 @@ MagicSquareLog.prototype = {
 	},
 	//禁用浏览器回弹功能
 	stopBrowserDrag:function () {
-		var overScroll = function(el) {
+		/*var overScroll = function(el) {
 			el.addEventListener('touchstart', function() {
 				var top = el.scrollTop,
 					totalScroll = el.scrollHeight,
@@ -154,11 +154,9 @@ MagicSquareLog.prototype = {
 			};
 		};
 
-		overScroll(document.querySelector('.ms-log-wrap'));
-		document.querySelector('.ms-log-wrap').ontouchmove = function(evt) {
-			if(!evt._isScroller) {
-				evt.preventDefault();
-			}
+		overScroll(document.querySelector('.ms-log-wrap'));*/
+		document.querySelector('html').ontouchmove = function(evt) {
+			evt.preventDefault();
 		};
 	}
 };
