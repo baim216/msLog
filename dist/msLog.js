@@ -1,8 +1,6 @@
 "use strict";
 
 var MagicSquareLog = function (param) {
-	var defaultParam = {};
-	this.currentParam = $.extend({}, defaultParam, param);
 	this.init();
 };
 
@@ -18,6 +16,7 @@ MagicSquareLog.prototype = {
 			"MagicSquareLog" +
 			"<span class='ms-log-close'>-</span>" +
 			"<span class='ms-log-clear'>&times;</span>" +
+			"<span class='ms-log-move'>=</span>" +
 			"</h1>" +
 			"<div class='ms-log-body'></div>" +
 			"</div>" +
@@ -27,6 +26,7 @@ MagicSquareLog.prototype = {
 
 		this.setEle();
 		this.addEvent();
+		this.move();
 	},
 	//设置element引用
 	setEle:function () {
@@ -35,6 +35,7 @@ MagicSquareLog.prototype = {
 		this.closeBtn = document.querySelector(".ms-log-close");
 		this.openBtn = document.querySelector(".ms-log-open");
 		this.clearBtn = document.querySelector(".ms-log-clear");
+		this.moveBtn = document.querySelector(".ms-log-move");
 	},
 	//添加按钮事件
 	addEvent:function () {
@@ -95,5 +96,29 @@ MagicSquareLog.prototype = {
 	//打开
 	open: function () {
 		this.wrapEle.style.display = "block";
+	},
+	//拖动
+	move: function () {
+		var x = 0, y = 0;
+		var moveX = 0, moveY = 0;
+		var offsetX = 0, offsetY = 0;
+		var bodyHeight = 0;
+		var t = this;
+		this.moveBtn.ontouchstart = function (e) {
+			var touch = e.changedTouches[0];
+			x = touch.clientX;
+			y = touch.clientY;
+			bodyHeight = parseInt(getComputedStyle(t.bodyEle, null)['height']);
+		};
+		this.moveBtn.ontouchmove = function (e) {
+			var touch = e.changedTouches[0];
+			moveX = touch.clientX;
+			moveY = touch.clientY;
+
+			offsetX = moveX - x;
+			offsetY = moveY- y;
+
+			t.bodyEle.style.height = bodyHeight - offsetY + "px";
+		}
 	}
 };
