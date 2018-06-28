@@ -1,4 +1,6 @@
-
+body{
+    -webkit-overflow-scrolling: touch;
+}
 .ms-log-wrap{
     position: fixed;
     bottom:0;
